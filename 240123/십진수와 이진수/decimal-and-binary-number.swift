@@ -1,0 +1,1 @@
+print(String(Int(readLine()!, radix: 2)! * 17, radix: 2))
