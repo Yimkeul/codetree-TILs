@@ -16,17 +16,13 @@ func dfs(_ n:Int) {
     visited[n] = true
     for v in graph[n] {
         if !visited[v] {
+            cnt += 1
             dfs(v)
         }
     }
 }
 
-for i in 1 ... N {
-    if !visited[i] {
-        cnt += 1
-        dfs(i)
-    }
-}
 
-// dfs(1)
+
+dfs(1)
 print(cnt)
