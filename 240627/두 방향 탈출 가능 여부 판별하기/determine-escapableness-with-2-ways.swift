@@ -13,7 +13,7 @@ for _ in 0..<n {
 }
 
 func dfs(_ x: Int, _ y: Int) {
-    visited[x][y] = true // 방문 처리
+    visited[y][x] = true // 방문 처리
 
     for i in 0..<2 {
         let nx = x + dx[i]
