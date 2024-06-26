@@ -19,8 +19,8 @@ func dfs(_ x: Int, _ y: Int) {
         let nx = x + dx[i]
         let ny = y + dy[i]
 
-        if 0 <= nx && nx < n && 0 <= ny && ny < m { // 올바른 범위인지 확인
-            if !visited[nx][ny] && matrix[nx][ny] == 1 { // 방문하지 않았고 뱀이 없는 칸인지 확인
+        if 0 <= nx && nx < m && 0 <= ny && ny < n { // 올바른 범위인지 확인
+            if !visited[ny][nx] && matrix[ny][nx] == 1 { // 방문하지 않았고 뱀이 없는 칸인지 확인
                 dfs(nx, ny)
             }
         }
