@@ -28,7 +28,7 @@ func dfs(_ x: Int, _ y: Int, _ height: Int, _ visited: inout [[Bool]]) {
 }
 
 var maxSafeArea = 0
-var maxHeight = 0
+var minKWithMaxSafeArea = Int.max // 가장 작은 K를 추적하기 위한 변수
 
 for height in 1...100 {
     var visited = Array(repeating: Array(repeating: false, count: m), count: n)
@@ -45,8 +45,10 @@ for height in 1...100 {
 
     if safeAreaCount > maxSafeArea {
         maxSafeArea = safeAreaCount
-        maxHeight = height
+        minKWithMaxSafeArea = height // 새로운 최대 안전 영역을 찾았으므로 해당 height가 현재의 최소 K가 됨
+    } else if safeAreaCount == maxSafeArea {
+        minKWithMaxSafeArea = min(minKWithMaxSafeArea, height) // 같은 경우 더 작은 K를 선택
     }
 }
 
-print(maxHeight, maxSafeArea)
+print(minKWithMaxSafeArea, maxSafeArea)
