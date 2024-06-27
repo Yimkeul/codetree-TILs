@@ -49,4 +49,4 @@ for height in 1...100 {
     }
 }
 
-print(maxSafeArea, maxHeight)
+print(maxHeight, maxSafeArea)
