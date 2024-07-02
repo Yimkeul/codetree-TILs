@@ -23,10 +23,11 @@ func findNextPosition(_ x: Int, _ y: Int, _ grid: [[Int]]) -> (Int, Int)? {
                 bestValue = grid[newX][newY]
                 bestPos = (newX, newY)
             } else if grid[newX][newY] == bestValue {
-                if newX < bestPos!.0 || (newX == bestPos!.0 && newY < bestPos!.1) {
-                    bestPos = (newX, newY)
-                }
+                if newX <= bestPos!.0 && newY <= bestPos!.1 {
+                  bestPos = (newX, newY)  
+                } 
             }
+            // print("test : \(bestPos)--\(bestValue)")
         }
     }
     
@@ -47,6 +48,9 @@ for _ in 0..<n {
 let startPosition = readLine()!.split(separator: " ").map { Int($0)! }
 var currentX = startPosition[0] - 1
 var currentY = startPosition[1] - 1
+// x = 행 y= 열
+// 반복문에서 외부 반복문 : 행, 내부 반복문 : 열
+// n * m 은 n == x , m == y
 
 // Performing the movements
 for _ in 0..<k {
@@ -57,5 +61,4 @@ for _ in 0..<k {
         break
     }
 }
-
 print("\(currentX) \(currentY)")
