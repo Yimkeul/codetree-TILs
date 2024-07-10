@@ -14,16 +14,15 @@ for _ in 0 ..< R {
 var cnt = 0
 
 // 모든 가능한 쌍을 찾아봅니다.
-for i in 1 ..< R {
-    for j in 1 ..< C {
-        for k in (i + 1) ..< R {
-            for l in (j + 1) ..< C {
+for i in 1 ..< R - 1 {
+    for j in 1 ..< C - 1 {
+        for k in i + 1 ..< R - 1{
+            for l in j + 1 ..< C - 1 {
                 // 색깔이 모두 다른 경우만 카운트합니다.
                 if grid[0][0] != grid[i][j] && 
                    grid[i][j] != grid[k][l] && 
                    grid[k][l] != grid[R - 1][C - 1] {
                     cnt += 1
-                    break
                 }
             }
         }
