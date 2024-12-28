@@ -27,11 +27,14 @@ for i in 0 ..< N {
             if map[i][nx] == 1 {
                 temp += 1
             }
+            if dx == 2 {
+                if bar1 < temp {
+                    bar1 = temp
+                    check = (i,j)
+                }
+            }
         }
-        if bar1 < temp {
-            bar1 = temp
-            check = (i,j)
-        }
+        
     }
 }
 
@@ -47,10 +50,13 @@ for i in 0 ..< N {
             if map[i][nx] == 1 {
                 temp += 1
             }
+            if dx == 2 {
+                if bar2 < temp {
+                    bar2 = temp
+                }
+            }
         }
-        if bar2 < temp {
-            bar2 = temp
-        }
+        
     }
 }
 print(bar1 + bar2)
