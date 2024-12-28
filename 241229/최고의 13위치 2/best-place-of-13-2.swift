@@ -7,10 +7,10 @@ for _ in 0 ..< N {
     map.append(input)
 }
 
-var ans = 0
 
 var bar1 = 0
-var check:(Int,Int) = (0,0)
+var check1:(Int,Int) = (0,0)
+var check2:(Int,Int) = (0,0)
 var bar2 = 0
 
 var dxs: [Int] = [0,1,2]
@@ -30,7 +30,9 @@ for i in 0 ..< N {
             if dx == 2 {
                 if bar1 < temp {
                     bar1 = temp
-                    check = (i,j)
+                    check1 = (i,j)
+                    check2 = (i,j + 2)
+                    // print("bar1",bar1,check1,check2)
                 }
             }
         }
@@ -44,7 +46,7 @@ for i in 0 ..< N {
         var temp = 0
         for dx in dxs {
             var nx = curx + dx
-            if !isRange(i,nx) || (i,nx) == check {
+            if !isRange(i,nx) || (i,nx) == check1 || (i,nx) == check2 {
                 break
             }
             if map[i][nx] == 1 {
@@ -53,6 +55,7 @@ for i in 0 ..< N {
             if dx == 2 {
                 if bar2 < temp {
                     bar2 = temp
+                    // print("bar2",bar2,i,j)
                 }
             }
         }
