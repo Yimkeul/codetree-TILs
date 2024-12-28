@@ -41,7 +41,7 @@ for i in 0 ..< N {
         var temp = 0
         for dx in dxs {
             var nx = curx + dx
-            if !isRange(i,nx) || nx == check.1 {
+            if !isRange(i,nx) || (i,nx) == check {
                 break
             }
             if map[i][nx] == 1 {
