@@ -16,7 +16,7 @@ let nk = readLine()!.split { $0 == " "}.map { Int($0)! }
         newAry[key] = value
     }
     
-    var ans = Int.min
+    var ans = 0
     
     for i in 1 ..< newAry.count - nk[1] {
         var temp = 0
