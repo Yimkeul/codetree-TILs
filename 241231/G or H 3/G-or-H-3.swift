@@ -1,4 +1,4 @@
-let nk = readLine()!.split { $0 == " "}.map { Int($0)! }
+    let nk = readLine()!.split { $0 == " "}.map { Int($0)! }
 
     var dic = [Int:Int]()
 
@@ -10,7 +10,7 @@ let nk = readLine()!.split { $0 == " "}.map { Int($0)! }
     
     let newDic = dic.sorted{ $0.key < $1.key }
     
-    var newAry = [Int](repeating: 0, count: newDic.last!.key + 1)
+    var newAry = [Int](repeating: 0, count: 10001)
     
     for (key, value) in newDic {
         newAry[key] = value
@@ -18,14 +18,15 @@ let nk = readLine()!.split { $0 == " "}.map { Int($0)! }
     
     var ans = 0
     
-    for i in 1 ..< newAry.count - nk[1] {
+    for i in 1 ..< 10001 - nk[1] {
         var temp = 0
         for j in i ... i + nk[1] {
             temp += newAry[j]
+//            print("TTTT : ", j, newAry[j])
         }
         ans = max(temp, ans)
-//        print(i)
     }
     
     
     print(ans)
+
