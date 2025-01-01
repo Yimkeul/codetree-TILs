@@ -46,14 +46,19 @@ let sortedArr2 = arr2.sorted()
 
 // 모든 구간의 시작점을 잡아봅니다.
 var cnt = 0
-for i in 0...(n - m) {
-    // 슬라이싱한 배열 정렬
-    let subArray = Array(arr1[i..<i+m]).sorted()
+if n < m {
+    print(cnt)
+} else {
+    for i in 0...(n - m) {
+        // 슬라이싱한 배열 정렬
+        let subArray = Array(arr1[i..<i+m]).sorted()
     
-    // 두 배열이 동일한지 비교
-    if subArray == sortedArr2 {
-        cnt += 1
+        // 두 배열이 동일한지 비교
+        if subArray == sortedArr2 {
+            cnt += 1
+        }
     }
-}
 
-print(cnt)
+    print(cnt)
+
+}
