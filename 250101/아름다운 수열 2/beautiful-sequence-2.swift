@@ -4,24 +4,25 @@ var arrayB = readLine()!.split { $0 == " "}.map { Int($0)! }
 
 var cnt = 0
 if NM[0] < NM[1] {
-    // var temp = arrayB
-    // arrayB = arrayA
-    // arrayA = temp
-    // A = NM[1]
-    // B = NM[0]
     print(cnt)
-    
 } else {
     for i in 0 ... NM[0] - NM[1] {
         var isTrue = false
+        var tempArray = arrayB
+        // print("\(i) - \(arrayA[i]) : ")
         for j in i ..< i + NM[1] {
             if arrayB.contains(arrayA[j]) {
                 isTrue = true
+                if let index = tempArray.firstIndex(of: arrayA[j]) {
+                    _ = tempArray.remove(at: index)
+                }
             } else { 
-             isTrue = false
+                isTrue = false
                 break
             }
+            // print(arrayA[j] , terminator: " ")
         }
+        // print("--")
         if isTrue {
             cnt += 1
         }
