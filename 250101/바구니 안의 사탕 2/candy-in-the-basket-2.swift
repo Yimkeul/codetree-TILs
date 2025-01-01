@@ -1,20 +1,33 @@
-let NK = readLine()!.split { $0 == " "}.map { Int($0)! }
+import Foundation
 
-var array = [Int](repeating: 0, count: 201)
+let MAX_NUM = 100
 
-for _ in 0 ..< NK[0] {
-    let input = readLine()!.split { $0 == " "}.map { Int($0)! }
-    let candy = input[0]
-    let position = input[1]
-    array[position] += candy
+// 입력 받기
+let nk = readLine()!.split(separator: " ").map { Int($0)! }
+let n = nk[0]
+let k = nk[1]
+
+// 배열 초기화
+var arr = [Int](repeating: 0, count: MAX_NUM + 1)
+
+// 입력 데이터를 배열에 저장
+for _ in 0..<n {
+    let input = readLine()!.split(separator: " ").map { Int($0)! }
+    let a = input[0]
+    let x = input[1]
+    arr[x] += a
 }
-var ans = 0
 
-for i in NK[1] + 1 ..< array.count - NK[1] {
-    var temp = 0
-    for j in i - NK[1] ... i + NK[1] {
-        temp += array[j]
+// 모든 구간의 시작점을 잡아봅니다.
+var maxSum = 0
+for i in 0...MAX_NUM {
+    // 해당 구간 내 원소의 합을 구합니다.
+    var sumAll = 0
+    for j in max(0, i - k)...min(MAX_NUM, i + k) {
+        sumAll += arr[j]
     }
-    ans = max(temp, ans)
+    // 최댓값을 구합니다.
+    maxSum = max(maxSum, sumAll)
 }
-print(ans)
+
+print(maxSum)
