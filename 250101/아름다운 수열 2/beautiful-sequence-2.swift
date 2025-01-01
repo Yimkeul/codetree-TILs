@@ -11,7 +11,7 @@ if NM[0] < NM[1] {
         var tempArray = arrayB
         // print("\(i) - \(arrayA[i]) : ")
         for j in i ..< i + NM[1] {
-            if arrayB.contains(arrayA[j]) {
+            if tempArray.contains(arrayA[j]) {
                 isTrue = true
                 if let index = tempArray.firstIndex(of: arrayA[j]) {
                     _ = tempArray.remove(at: index)
@@ -22,7 +22,6 @@ if NM[0] < NM[1] {
             }
             // print(arrayA[j] , terminator: " ")
         }
-        // print("--")
         if isTrue {
             cnt += 1
         }
