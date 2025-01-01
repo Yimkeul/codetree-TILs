@@ -17,7 +17,7 @@ if NM[0] < NM[1] {
 var cnt = 0
 for i in 0 ... A - B {
     var isTrue = false
-    for j in i ..< i + NM[1] {
+    for j in i ..< i + B {
         if arrayB.contains(arrayA[j]) {
             isTrue = true
         } else { 
